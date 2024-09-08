@@ -1,0 +1,71 @@
+#place-boat-modal{
+    width: 500px;
+    padding: 40px 10px 40px 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 10;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#place-boat-modal.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
+}
+
+.grid{
+    /* width: 40%; */
+    display: grid;
+    grid-template-rows: repeat(10, 30px);
+    grid-template-columns: repeat(10, 30px);
+    gap: 1px;
+}
+
+.grid-item{
+    outline: 1px solid black;
+}
+
+.grid-item.place:hover, .grid-item.computer:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 700px){
+    .grid{
+        /* width: 40%; */
+        display: grid;
+        grid-template-rows: repeat(10, 25px);
+        grid-template-columns: repeat(10, 25px);
+        gap: 1px;
+    }
+}
+
+@media (max-width: 600px){
+    #place-boat-modal{
+        width: 350px
+    }
+
+    h1{
+        text-align: center;
+    }
+}
